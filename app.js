@@ -10,9 +10,11 @@ var params={
     mongoose    :mongoose,
     settings    :settings,
     Intern      :require ('./api/models/Intern.js'),
+    Timelog     :require ('./api/models/Timelog.js'),
     router      :router
 }
 app.use(bodyparser.json());
 app.use('/',require('./api/routers/InternRouter.js')(params));
+app.use('/',require('./api/routers/TimelogRouter.js')(params));
 app.listen(1111);
 console.log("server started: port 1111")

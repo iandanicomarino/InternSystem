@@ -2,17 +2,15 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var connection = require('../../config/settings.js');
 var Intern = {
-    middlename  :{type:String},
-    firstname   :{type:String},
-    lastname    :{type:String},
+    username    :{type:String, unique:true},
+    password    :{type:String, require:true},
+    firstname   :{type:String, require:true},
+    middlename  :{type:String, require:true},
+    lastname    :{type:String, require:true},
     birthday    :{type:Date},
     firstday    :{type:Date},
-    school      :{type:String},
-    timelog     :[{
-                    date    :{type: Date, default: Date.now()},
-                    timein  :{type: Date, default: Date.now()},
-                    timeout :{type: Date, default: Date.now()}
-                }],
+    school      :{type:String, require:true},
+    timelog     :[{type: Schema.Types.ObjectId, require:true, ref:"Timelog"}],
     handler     :{type:String},
     coordinator :{type:String}
 }
