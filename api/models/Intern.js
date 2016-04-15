@@ -12,6 +12,7 @@ var Intern = {
     school      :{type:String, require:true},
     timelog     :[{type: Schema.Types.ObjectId, require:true, ref:"Timelog"}],
     handler     :{type:String},
-    coordinator :{type:String}
+    coordinator :{type:String},
+    timedout   :{type:Boolean, require:true}
 }
 module.exports=mongoose.model('Intern',Intern)

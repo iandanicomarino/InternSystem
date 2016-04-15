@@ -5,6 +5,6 @@ var Timelog = {
 
     date    :{type: Date, default: Date.now()},
     timein  :{type: Date, default: Date.now()},
-    timeout :{type: Date, }
+    timeout :{type: Date, default: Date}
 }
 module.exports=mongoose.model('Timelog',Timelog)

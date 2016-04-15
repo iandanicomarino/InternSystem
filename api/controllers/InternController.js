@@ -14,8 +14,7 @@ module.exports = function (params){
     //     newIntern.save(function (err,docs){
     //         if(err){
     //             console.log(err);
-    //             return err;
-    //         }
+    //             //         }
     //         else console.log("saved"+docs)
     //     });
     //     Intern.find(function(err,docs){
@@ -35,7 +34,8 @@ module.exports = function (params){
             firstname   :req.body.firstname,
             middlename  :req.body.middlename,
             lastname    :req.body.lastname,
-            school      :req.body.school
+            school      :req.body.school,
+            timedout    :true
         })
         newIntern.save(function(err,docs){
             if (err){res.status(409).json(err);return;}
