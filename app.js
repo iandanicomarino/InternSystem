@@ -13,8 +13,14 @@ var params={
     Timelog     :require ('./api/models/Timelog.js'),
     router      :router
 }
+
+// app.use(cors());
+app.use(express.static(__dirname + '/public')); // THE DIRECTORY FOR THE APP FOR LOCAL DEV
 app.use(bodyparser.json());
-app.use('/',require('./api/routers/InternRouter.js')(params));
-app.use('/',require('./api/routers/TimelogRouter.js')(params));
+
+var test = [require('./api/routers/InternRouter.js')(params),
+require('./api/routers/TimelogRouter.js')(params)]
+
+app.use(settings.API_ENDPOINT, test); //this is important
 app.listen(1111);
 console.log("server started: port 1111")

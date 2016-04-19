@@ -35,7 +35,11 @@ module.exports = function (body){
             middlename  :req.body.middlename,
             lastname    :req.body.lastname,
             school      :req.body.school,
+            email       :req.body.email,
+            address     :req.body.address,
+            contact     :req.body.contact,
             timedout    :true
+
         })
         newIntern.save(function(err,docs){
             if (err){res.status(409).json(err);return;}

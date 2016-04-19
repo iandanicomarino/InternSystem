@@ -14,6 +14,9 @@ var Intern = {
     handler     :{type:String},
     coordinator :{type:String},
     timedout    :{type:Boolean, require:true},
-    email       :{type:String}
+    email       :{type:String},
+    address     :{type:String},
+    email       :{type:String},
+    contact     :{type:String}
 }
 module.exports=mongoose.model('Intern',Intern)

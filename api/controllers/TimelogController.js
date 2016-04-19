@@ -13,30 +13,18 @@ module.exports = function (params){
             timeout: null
         }
         Intern.findOne({_id:req.params.id})
-            .exec(function (err, doc) {
-                if(!doc.timedout){res.status(400).send("FAILED YOU HAVE NOT TIMED OUT YET");return;}
-                Timelog(newTimelog).save(function (err,docs){
-                        if (err){console.log(err);res.json(err);return};
-                        doc.timedout=false;
-                        doc.timelog.push(docs._id);
-                        doc.save(function (err,ok){
-                            res.status(200).send("Saved Time");
-                        });
+        .exec(function (err, doc) {
+            if(!doc.timedout){res.status(400).send("FAILED YOU HAVE NOT TIMED OUT YET");return;}
+            Timelog(newTimelog).save(function (err,docs){
+                if (err){console.log(err);res.json(err);return};
+                doc.timedout=false;
+                doc.timelog.push(docs._id);
+                doc.save(function (err,ok){
+                    res.status(200).send("Saved Time");
                 });
-
             });
-        // Timelog(newTimelog).save(function (err, timelog){
-        //     if (err){console.log(err);res.json(err);return};
-        //     Intern.findOne({_id:req.params.id})
-        //         .exec(function (err, doc) {
-        //             if(!doc.timedout){res.status(400).send("FAILED YOU HAVE NOT TIMED OUT YET");return;}
-        //             doc.timedout=false;
-        //             doc.timelog.push(timelog._id);
-        //             doc.save(function (err, ok) {
-        //                 res.status(200).send("Saved Time");
-        //             })
-        //         })
-        // });
+
+        });
     };
     controllers.timeout = function (req,res){
         var timeid;
