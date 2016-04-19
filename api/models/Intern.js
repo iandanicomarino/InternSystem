@@ -13,6 +13,7 @@ var Intern = {
     timelog     :[{type: Schema.Types.ObjectId, require:true, ref:"Timelog"}],
     handler     :{type:String},
     coordinator :{type:String},
-    timedout   :{type:Boolean, require:true}
+    timedout    :{type:Boolean, require:true},
+    email       :{type:String}
 }
 module.exports=mongoose.model('Intern',Intern)

@@ -9,7 +9,6 @@ module.exports = function (params){
 
     controllers.timein = function (req,res){
         var newTimelog = {
-            date: new Date(),
             timein: new Date(),
             timeout: null
         }
